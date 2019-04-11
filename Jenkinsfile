@@ -8,13 +8,13 @@ node {
         checkout scm
     }
 
-    stage('Test'){
+    /*stage('Test'){
         sh 'go get -u github.com/golang/lint/golint'
         sh 'go get -t ./...'
         //sh 'golint -set_exit_status'
         sh 'go vet .'
         sh 'go test .'
-    }
+    }*/
 
     stage('Build'){
         sh 'GOOS=linux go build -o main main.go'
