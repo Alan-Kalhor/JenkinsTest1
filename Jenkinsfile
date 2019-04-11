@@ -3,6 +3,7 @@ def functionName = 'Fibonacci'
 def region = 'ap-southeast-2"'
 
 //node('slaves'){
+node {
     stage('Checkout'){
         checkout scm
     }
@@ -40,7 +41,7 @@ def region = 'ap-southeast-2"'
             sh "aws lambda update-alias --function-name ${functionName} --name production --region ${region} --function-version ${lambdaVersion}"
         }
     }
-//}
+}
 
 def commitID() {
     sh 'git rev-parse HEAD > .git/commitID'
